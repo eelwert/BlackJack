@@ -27,6 +27,7 @@ static QRect rect_relative(const QRect& rect, const QSize& parent, const QRect& 
 
 MainWindow::MainWindow(QWidget *parent):
 QMainWindow(parent), vscreen_size(1024, 768) {
+    this->resize(1024, 768);
     coutils::sync::unleash_lambda([this]() -> coutils::async_fn<void> {
         auto wait_key = [&](Qt::Key key) -> coutils::async_fn<void> {
             while (true) {
