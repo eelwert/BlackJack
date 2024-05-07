@@ -1,0 +1,6 @@
+[submodule "deps/coutils"]
+	path = deps/coutils
+	url = https://github.com/TsXor/coutils.git
+[submodule "deps/fmt"]
+	path = deps/fmt
+	url = https://github.com/fmtlib/fmt.git
