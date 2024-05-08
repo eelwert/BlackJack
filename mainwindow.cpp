@@ -41,8 +41,8 @@ QMainWindow(parent), vscreen_size(1024, 768) {
             while (true) {
                 co_await cohost.wait_event({cohost.EVT_KEY_CHANGE});
                 if (pressed_keys.contains(Qt::Key_Z)) {
-                    if (select_cursor == state->player_cards.size() && state->can_submit()) {
-                        state->submit_round(); select_cursor = 0; break;
+                    if (select_cursor == state->player_cards.size()) {
+                        if (state->can_submit()) { state->submit_round(); select_cursor = 0; break; }
                     } else {
                         state->toggle_card(select_cursor);
                     }

@@ -1,6 +1,7 @@
 #ifndef CORO_HOST_HPP
 #define CORO_HOST_HPP
 
+#include <cstdint>
 #include <tuple>
 #include <variant>
 #include <any>

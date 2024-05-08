@@ -42,7 +42,11 @@ void BlackJackState::toggle_card(size_t card_idx) {
 
 template <typename T>
 static inline auto erase_idxs(std::vector<T>& vec, const std::unordered_set<size_t>& idxs) {
-    return std::erase_if(vec, [&](const size_t& v) { return idxs.contains(&v - &vec.front()); });
+    std::vector<T> result; result.reserve(vec.size() - idxs.size());
+    for (size_t i = 0; i < vec.size(); ++i) {
+        if (!idxs.contains(i)) { result.push_back(std::move(vec[i])); }
+    }
+    vec.swap(result);
 }
 
 bool BlackJackState::can_submit() {
